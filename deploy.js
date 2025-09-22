@@ -3,14 +3,14 @@ import fs from "fs";
 import path from "path";
 import solc from "solc";
 import dotenv from "dotenv";
-import axios from "axios"; // <-- pakai axios
+import axios from "axios";
 dotenv.config();
 
 const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
 async function compileContract() {
-  const contractPath = path.resolve("./contract/GM.sol");
+  const contractPath = path.resolve("./Contract/gm.sol");
   const source = fs.readFileSync(contractPath, "utf8");
   const input = {
     language: "Solidity",
